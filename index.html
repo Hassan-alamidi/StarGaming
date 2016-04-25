@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!-- to do list
+web search optimization
+fix scaling issues
+try different drop down menus because the one in use is not very good
+optimize images for website
+look for errors
+ -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title> Star Gaming </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" >
+	<meta name="keywords" content="Gaming-News, Game, Video-Games, PC-Gaming, Xbox-One, Playstation-4, E3, Game-Reviews, news, reviews, video-game-reviews, video-game-news">
+	<meta name="description" content="The latest Gaming news and reviews">
+	<link rel="shortcut icon" href="icon2.ico">
+	<link rel="stylesheet" type="text/css" href="indexfiles/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styleHome.css">
+	<link rel="stylesheet" type="text/css" href="css/searchtrans.css">
+ </head>
+<body >
+<!-- page wrapper -->
+<div class="container-fluid">  
+  <div class="row"> <!-- add row to remove container-fluid padding -->
+	<div class="heightNav">
+		<!--<div class="navbar-brand" id="logopos">
+           <img src="images/GWSecurityLogo.jpg" alt="" id="logo">
+        </div>-->
+
+		<div class="navbar-static-top heightNav" id="banner">
+	 
+			<div class="container-fluid">
+         
+				<button class="navbar-toggle" id="menu" data-toggle="collapse" data-target=".navHeaderCollapse">
+					Menu
+				</button>
+				<div class="collapse navbar-collapse navHeaderCollapse" >
+					<ul class="nav navbar-nav navbar-right" id="navtoggle">
+						<li class="list2" id="menutab"><a data-toggle="collapse" data-target=".navHeaderCollapse">Menu</a></li>
+						<li class="list2"><a href="index.html">Home</a></li>
+						<li class="list2"><a href="About.html">About</a></li>
+						<li class="list2"><a href="Reviews.html">Reviews</a></li>
+						<li class="list2"><a href="NewsList.html">News</a></li>
+						<li class="list2"><a href="ContactUs.php">Contact</a></li>
+					</ul>
+				</div>
+				<form class="search-container" id="searchbar"  method="POST" onclick="show()" action="search/ssearch.php">
+					<input id="search-box" type="text" tabindex="0" class="search-box" name="search-box" />
+					<label for="search-box"><span class="search-icon">&#128269;</span></label>
+					<input type="submit" class="hide" tabindex="1" id="search-submit" />
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+		<div class = "row" id="headder">
+			<img src="images/temp.jpg" id="img1pos" alt="game mash-up poster"/>
+			<div class="container" id="textcont">
+				<h1 class="headtxt headtxtdes"> This website is still undergoing construction while there will be some news available they might be a day or two old</h1>
+				<p class="headtxt headtxtdes" ></p>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="slider">
+				<div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+					<!-- Carousel indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"> <img src="images/batman-logo.jpg" alt="batman logo" class="img-circle myresponsiveimg indicators" /></li>
+						<li data-target="#myCarousel" data-slide-to="1" > <img src="images/Fallout-icon.png" alt="fallout icon" class="img-circle myresponsiveimg indicators" /></li>
+						<li data-target="#myCarousel" data-slide-to="2" > <img src="images/bethesdafalloutlogo.jpg" alt="Bethesda logo with fallout scene in centre" class="img-circle myresponsiveimg indicators" /></li>
+						<li data-target="#myCarousel" data-slide-to="3" > <img src="images/e3logo.jpg" alt="E3 Logo" class="img-circle myresponsiveimg indicators"/></li>
+						<li data-target="#myCarousel" data-slide-to="4" > <img src="images/bethesdafalloutlogo.jpg" alt="Bethesda logo with fallout scene in centre" class="img-circle myresponsiveimg indicators" /></li>
+						
+						
+						<!--<li data-target="#myCarousel" data-slide-to="4"><img src="images/ps4.png" alt="playstation 4 logo" class="img-circle myresponsiveimg indicators" scaleContent="true"/></li>
+						<li data-target="#myCarousel" data-slide-to="5" ><img src="images/pcgamingLogo.jpg" alt="amd presents, PC Gaming Logo" class="img-circle myresponsiveimg indicators" scaleContent="true"/></li>-->
+					</ol>   
+					<!-- Carousel items -->
+					<div class="carousel-inner">
+						<div class="active item" id="firstslide" >
+							<a href="Sub_pages/news/Batman-broken.html">
+							<img src="images/batman-arkham-knight.jpg" alt="batman image" class="slideimg" />
+							
+							<div class="carousel-caption captionshade">
+								<h3>batman arkham knight just another console port</h3>
+								
+							</div>
+							</a>
+						</div>
+						<div class="item" id="secondslide">
+							<a href="Sub_pages/news/Fallout-4-At-E3.html">
+							<img src="images/fallout4.jpg" alt="Fallout 4 poster" class="slideimg" />
+							<div class="carousel-caption captionshade">
+								<h3>Fallout 4 E3 in-depth overview</h3>
+								<p>An in-depth overview of fallout 4 Bethesda's E3 press conference</p>
+							</div>
+							</a>
+						</div>
+						<div class="item" id="thridslide">
+							<a href="Sub_pages/news/Doom-4-at-E3.html">
+							<img src="images/Doomlogo.jpg" alt="Doom 4 logo" class="slideimg" />
+							<div class="carousel-caption captionshade">
+								<h3>Doom 4</h3>
+								<p>overview of Doom 4 at E3</p>
+							</div>
+							</a>
+						</div>
+						<div class="item" id="fourthslide" >
+							<a href="Sub_pages/E3News.html">
+							<img src="images/E3-HEADER.JPG" alt="E3 Experience the evolution" class="slideimg" />
+							
+							<div class="carousel-caption captionshade">
+								<h3>E3 News in one place</h3>
+								<p>E3 is here and we have the latest news</p>
+							</div>
+							</a>
+						</div>
+						<div class="item" id="fifthslide" >
+							<a href="Sub_pages/news/Bethesda-Press-Conference.html">
+							<img src="images/bethesdaheader.jpg" alt="Bethesda logo" class="slideimg" />
+							
+							<div class="carousel-caption captionshade">
+								<h3>Bethesda Softworks E3 Press conference</h3>
+								<p>Get the run down on Bethesdas E3 conference here</p>
+							</div>
+							</a>
+						</div>
+						
+					</div>
+					<!-- Carousel nav -->
+					<a class="carousel-control left" href="#myCarousel" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a class="carousel-control right" href="#myCarousel" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+				</div>
+			</div>
+			
+			
+		</div>
+		<div class="row" id="news">
+			<h1 class="team">Gaming News</h1>
+			<div class="col-md-6 objcont">
+				<a href="Sub_pages/news/Fallout-4-At-E3.html">
+				<img class="lgImgPanel" src="images/theBigBang.jpg" Alt="Fallout 4 nuclear explosion" />
+				<div class="lgheadding">
+					<h1>Fallout 4 in-depth E3 overview</h1>
+				</div>
+				</a>
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<a href="Sub_pages/E3News.html">
+						<div class="col-sm-6 objcont">
+							<img class="imgPanel" src="images/E3.jpg" alt="E3 Logo experience the evolution" />
+							<div class="smheadding">
+								<h1>News From E3</h1>
+								<p>get the latest E3 News here</p>
+							</div>
+						</div>
+					</a>
+					
+						<div class="col-sm-6 objcont">
+							<a href="Sub_pages/news/Doom-4-at-E3.html">
+								<img class="imgPanel" src="images/Doomlogo.jpg" Alt="Steam Logo" />
+								<div class="smheadding">
+									<h1>Doom 4 overview</h1>
+								</div>
+							</a>
+						</div>
+				
+				</div>
+				<div class="row">
+					<div class="col-sm-6 objcont">
+						<a href="Sub_pages/news/steamSummerSale.html">
+							<img class="imgPanel" src="images/SteamBanner.jpg" Alt="Steam Logo" />
+							<div class="smheadding">
+								<h1>Steam Summer Sale is here</h1>
+							</div>
+						</a>
+					</div>
+				
+					<div class="col-sm-6 objcont">
+						<a href="Sub_pages/news/Bethesda-Press-Conference.html">
+							<img class="imgPanel" src="images/bethesdaLogo.jpg" alt="Bethesda logo" />
+							<div class="smheadding">
+								<h1>Bethesda E3 Press conference</h1>
+								<p></p>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row hide" id="newGame">
+			<h1 class="team">Game Reviews</h1>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-sm-6 objcont">
+						<img class="imgPanel" src="images/E3.jpg" alt="e3 logo" />
+						<div class="smheadding">
+							<h1>place holder</h1>
+						</div>
+					</div>
+					<div class="col-sm-6 objcont">
+						<img class="imgPanel" src="images/Xbox.jpg" alt="xbox logo" />
+						<div class="smheadding">
+							<h1>place holder</h1>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 objcont">
+						<img class="imgPanel" src="images/playstation4.jpg" alt="playstation 4 logo" />
+						<div class="smheadding">
+							<h1>place holder</h1>
+						</div>
+					</div>
+					<div class="col-sm-6 objcont">
+						<img class="imgPanel" src="images/E3.jpg" alt="E3 logo" />
+						<div class="smheadding">
+							<h1>place holder</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 objcont">
+				<img class="lgImgPanel" src="images/E3.jpg" alt="e3 logo" />
+				<div class="lgheadding">
+					<h1>place holder</h1>
+				</div>
+			</div>
+		</div>
+		<div class="row hide" id="oldGame">
+			<h1 class="team">Reviews Of Old Games</h1>
+			<div class="col-md-6 objcont">
+				<img class="lgImgPanel" src="images/E3.jpg" alt="e3 logo" />
+				<div class="lgheadding">
+					<h1>place holder</h1>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-sm-6 objcont">
+						<img class="imgPanel" src="images/E3.jpg" alt="e3 logo" />
+						<div class="smheadding">
+							<h1>place holder</h1>
+						</div>
+					</div>
+					<div class="col-sm-6 objcont">
+						<img class="imgPanel" src="images/Xbox.jpg" alt="xbox logo" />
+						<div class="smheadding">
+							<h1>place holder</h1>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 objcont">
+						<img class="imgPanel" src="images/playstation4.jpg" alt="ps4 logo" />
+						<div class="smheadding">
+							<h1>place holder</h1>
+						</div>
+					</div>
+					<div class="col-sm-6 objcont">
+						<img class="imgPanel" src="images/E3.jpg" alt="e3 logo" />
+						<div class="smheadding">
+							<h1>place holder</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class = "row" id = "contentsplitter">
+ 
+   </div>
+	<footer class="footer">
+		<div class="container">
+			<p class="pull-right">
+			<a id="bktotop" href="index.html#"> Back to top </a>
+			</p>
+			<p id = "footer"> &#10032; Star-Gaming </p>
+			<hr/>
+			
+		</div>
+	</footer>
+<script src="indexfiles/jquery-1.11.2.min.js"></script>
+<script src="indexfiles/bootstrap.js"></script>
+<script src="css/temp.js"></script>
+
+</body></html>

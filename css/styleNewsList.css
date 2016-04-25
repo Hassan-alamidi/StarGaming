@@ -1,0 +1,418 @@
+#searchbar{
+float:right;
+/*float: left;
+position: absolute;
+right: 30%;
+top: 10px;*/
+position: relative;
+top: 10px;
+/* right: -70px; */
+}
+#menuwrap{
+float: right;
+width: 100%;
+height:100%;
+}
+.maincontainer{
+background:rgb(234, 234, 234);
+}
+.hide{
+display:none;
+}
+.heightNav{
+	height: 60px;
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+}
+	/* not in use yet
+	#logopos
+	{
+		position:absolute;
+		top: -7px;
+		z-index: 9999;
+	}*/
+		#banner
+		{
+			background: linear-gradient(rgba(110, 110, 110, 1), rgba(0, 0, 0, 1));
+			background: -webkit-gradient(linear, left top, left bottom, from(rgba(110, 110, 110, 1)), to(rgba(0, 0, 0, 1)));
+			background: -moz-linear-gradient(top, rgb(110, 110, 110), rgb(0, 0, 0));
+			background: -ms-linear-gradient(top, rgb(110, 110, 110), rgb(0, 0, 0));
+			background: -o-linear-gradient(rgb(110, 110, 110),rgb(0, 0, 0));
+			opacity: 0.99;
+			height: 50px;
+		}
+			#menu
+			{
+				background: linear-gradient( #FDFDFD, #414141);
+				background: -webkit-gradient(linear, left top, left bottom, from(#FDFDFD), to(#414141));
+				background: -moz-linear-gradient(top,  #FDFDFD, #414141);
+				background: -ms-linear-gradient(top, #FDFDFD, #414141);
+				background: -o-linear-gradient( #FDFDFD, #414141);
+				top: -5px;
+				color: black;
+			
+				z-index: 200;
+}
+				#menutab
+				{
+					display:none;
+				}
+					.list2
+					{
+						background: linear-gradient(rgb(111, 111, 111), rgb(0, 0, 0));
+						background:-o-linear-gradient(rgb(111, 111, 111), rgb(0, 0, 0));
+						background: -webkit-gradient(linear, left top, left bottom, from(rgba(111, 111, 111, 1)), to(rgba(0, 0, 0, 1)));
+						background: -moz-linear-gradient(top,  rgb(111, 111, 111), rgb(0, 0, 0));
+						background: -ms-linear-gradient(top, rgb(111, 111, 111), rgb(0, 0, 0));
+						height: 50px;
+						color: white;
+						font-style: oblique;
+						font-weight: bold;
+					}
+						.list2 a
+						{
+							height:50px;
+						}
+						.list2 a:hover
+						{
+							background: -webkit-gradient(linear, left top, left bottom, from(rgba(111, 111, 111, 1)), to(rgba(0, 0, 0, 1)));
+							background: -moz-linear-gradient(top, rgb(111, 111, 111), rgb(0, 0, 0));
+							background: -ms-linear-gradient(top, rgb(111, 111, 111), rgb(0, 0, 0));
+							background: linear-gradient( rgb(111, 111, 111), rgb(0, 0, 0));
+							background:-o-linear-gradient(rgb(111, 111, 111), rgb(0, 0, 0));
+						}
+
+#headder{
+height: 650px;
+}
+	#img1pos
+	{
+		width:100%;
+		height:650px;
+		position:absolute;
+		display: block;
+		overflow:hidden;
+		box-shadow: 0px 5px 5px #888888;
+	}
+		#textcont
+		{
+			position:relative;
+			top: 450px;
+		
+			text-align: center;
+			color: white;
+}
+			.headtxt
+			{
+				font-family:sans-serif;
+				margin: 0 auto;
+				text-align:center;
+				font-size:24px;
+				font-weight:300;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+				.headtxtdes
+				{
+					color:white;
+				}
+.searchRsltCont{
+padding-top: 20px;
+padding-bottom: 30px;
+padding-left: 20px;
+padding-right: 0;
+}
+	.searchRsltimg{
+		border-radius: 50px 0px 0px 50px;
+		width: 100%;
+		height: 200px;
+	
+}
+	.searchRslttxt{
+		background: rgb(37, 37, 37);
+		height: 200px;
+		margin-top: 20px;
+		border-radius: 0px 50px 50px 0px;
+		padding-right: 4%;
+		padding-left: 2%;
+}
+		.searchRslttxt h1{
+			
+			font-size: 25px;
+			color:white;
+			text-align: center;
+}
+		.searchRslttxt p{
+			font-size:20px;
+			color:white;
+			text-align: center;
+		}
+			.resultcontent:hover{
+				 text-shadow: 0 0 3px white,0 0 5px white;
+				
+			}
+			.searchRslttxt p:hover{
+				text-shadow:none;
+			}
+				.contshading{
+					position:relative;
+					margin-top: -200px;
+					/*margin-left: 390px;*/
+					margin-left: 50%;
+					background: -webkit-linear-gradient(left,rgba(36,36,39,0) 0,rgba(36, 36, 39, 0.03) 39%,rgba(36, 36, 39, 1) 100%);
+					background: linear-gradient(to right,rgba(36,36,39,0) 0,rgba(36, 36, 39, 0.03) 39%,rgba(36, 36, 39, 1) 100%);
+					background: -moz-linear-gradient(center left , rgba(36,36,39,0) 0px, rgba(36, 36, 39, 0.03) 36%, rgba(36, 36, 39, 1) 100%);
+					background: -ms-linear-gradient(left,rgba(36,36,39,0) 0,rgba(36, 36, 39, 0.03) 39%,rgba(36, 36, 39, 1) 100%);
+					background: -o-linear-gradient(left,rgba(36,36,39,0) 0,rgba(36, 36, 39, 0.03) 39%,rgba(19,21,28,0.85) 100%);
+					width: 50%;
+					height: 200px;
+				}
+#bktotop{
+color:blue;
+}
+
+
+#footer{
+	font-size: 40px;
+	color: #808080;
+	text-align:center;
+}
+	#footerContact{
+		font-size: 15px;
+		color: #808080;
+		text-align:center;
+	}
+		footer{
+		/* position: absolute; */
+			display:block; 
+			height: 150px;
+			background: -webkit-gradient(linear, left top, left bottom, from(rgba(234, 234, 234,1)), to(rgba(148, 148, 148, 1)));
+			background: -moz-linear-gradient(top, rgb(234, 234, 234), rgb(148, 148, 148));
+			background: -ms-linear-gradient(top, rgb(234, 234, 234), rgb(148, 148, 148));
+			bottom:0px;
+			width:100%;
+			padding:0px;
+			margin-left:0px;
+		}	
+.adverttest{
+padding-top: 20px;
+padding-right: 15px;
+padding-left: 35px;
+padding-bottom: 20px;
+width: 100%;
+height: 735px;
+}		
+
+/* media queries have to be add for different widths */
+ @media only screen and (max-width : 1200px) {
+#headder{
+	height:600px;
+}
+	#img1pos
+	{
+		width:100%;
+		height: 600px;
+		position:absolute;
+		display: block;
+		overflow:hidden; 
+	}
+		#textcont
+		{
+		position:relative;
+		top: 400px;
+		}
+ }
+ @media screen and (max-width: 991px) {
+.adverttest{
+padding: 20px;
+width: 100%;
+height: 200px;
+margin-left: 0;
+}	
+}
+@media screen and (max-width: 960px) {
+#headder{
+height:550px;
+}
+	.headtxt{
+		font-family:sans-serif;
+		margin: 0 auto;
+		text-align:center;
+		padding-left: 10px;
+		padding-right: 10px;
+		font-weight:300;
+	}
+		.headtxtdes
+		{
+			color:white;
+			font-size:18px;
+		}
+			.maintxtdes
+			{
+				color:black;
+				font-size:18px;
+			}
+				#textcont
+				{
+					position:relative;
+					top: 350px;
+				}
+					#img1pos
+					{
+						width:100%;
+						height:550px;
+						position:absolute;
+						overflow:hidden;
+					}
+
+
+}
+@media screen and (max-width: 767px){
+.list2
+{
+	background: rgba(103, 103, 103, 1);
+	height: 40px;
+}	
+	.list2 a
+	{
+		height: 40px;
+	}
+		.navbar-collapse.in {
+			width: 50%;
+			float: right;
+			position: relative;
+			right: -90px;
+			z-index: 9999;
+		}
+			#menutab
+			{
+				display:block;
+			}
+				#headder{
+					height: 400px;
+				}
+					.headtxt{
+						font-family:sans-serif;
+						margin: 0 auto;
+						padding-left: 10px;
+						padding-right: 10px;
+						text-align:center;
+						font-weight:300;
+	
+					}
+						.headtxtdes
+						{
+							color:white;
+							font-size:18px;
+						}
+							.maintxtdes
+							{
+								color:black;
+								font-size:18px;
+							}
+								#textcont
+								{
+									position:relative;
+									top: 250px;
+								}
+									#img1pos
+									{
+										width:100%;
+										height: 400px;
+										position:absolute;
+										overflow:hidden;
+									}
+.searchRsltCont{
+padding-right: 20px;
+}
+.contshading{
+display:none;
+}
+.searchRsltimg{
+border-radius: 50px 50px 0px 0px;
+height: 170px;
+}
+.searchRslttxt{
+		margin-top: -30px;
+		border-radius: 0px 0px 50px 50px;
+		padding-right: 4%;
+		padding-left: 2%;
+		padding-top: 10px;
+		margin-left: 20px;
+		height: 130px;
+		text-decoration: none;
+	
+		margin-right: 20px;
+}
+}
+@media screen and (max-width: 432px) {
+    #myCanvas{
+	width:200;
+	margin-left:0px;
+	background-color:green;
+    }
+#headder{
+height:300px;
+}
+.headtxt{
+	font-family:sans-serif;
+	margin: 0 auto;
+	text-align:center;
+	font-size: 18px;
+	font-weight:300;
+
+	}
+	.headtxtdes
+{
+color:white;
+font-size: 16px;
+}
+.maintxtdes
+{
+color:black;
+font-size:18px;
+}
+#textcont
+		{
+		position:relative;
+		top: 200px;
+		}
+		#img1pos
+	{
+	width:100%;
+	height:300px;
+	position:absolute;
+	overflow:hidden;
+	}
+#main{
+height:500px;
+}
+}
+@media only screen and (max-width : 320px) {
+
+ #main{
+ height:600px;
+ }  
+ #headder{
+height:250px;
+}
+#textcont
+		{
+		position:relative;
+		top: 160px;
+		}
+.headtxtdes
+{
+color:white;
+font-size: 12px;
+}
+
+#img1pos
+	{
+	width:100%;
+	height:250px;
+	position:absolute;
+	overflow:hidden;
+	}
+}

@@ -1,0 +1,364 @@
+#searchbar{
+float:right;
+/*float: left;
+position: absolute;
+right: 30%;
+top: 10px;*/
+position: relative;
+top: 10px;
+/* right: -70px; */
+}
+.rating{
+width:50%;
+margin:auto;
+}
+.ratingoverlay{
+position: relative;
+top: -320px;
+right: -330px;
+font-size: 200px;
+opacity: 0.76;
+z-index: 200;
+}
+.socialposition{
+	padding:60px;
+}
+.indicators{
+width: 100%;
+cursor: pointer;
+}
+.activeindi{
+opacity: 0.5;
+}
+/* navbar*/
+.heightNav{
+	height: 100px;
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+}
+	/* not in use yet
+	#logopos
+	{
+		position:absolute;
+		top: -7px;
+		z-index: 9999;
+	}*/
+		#banner
+		{
+			background: -webkit-gradient(linear, left top, left bottom, from(rgba(110, 110, 110, 1)), to(rgba(0, 0, 0, 1)));
+			background: -moz-linear-gradient(top, rgb(110, 110, 110), rgb(0, 0, 0));
+			background: -ms-linear-gradient(top, rgb(110, 110, 110), rgb(0, 0, 0));
+			opacity: 0.99;
+			height: 50px;
+		}
+			#menu
+			{
+				background: -webkit-gradient(linear, left top, left bottom, from(#FDFDFD), to(#414141));
+				background: -moz-linear-gradient(top,  #FDFDFD, #414141);
+				background: -ms-linear-gradient(top, #FDFDFD, #414141);
+				top: -5px;
+				color: black;
+			}
+				#menutab
+				{
+					display:none;
+				}
+					.list2
+					{
+						background: -webkit-gradient(linear, left top, left bottom, from(rgba(111, 111, 111, 1)), to(rgba(0, 0, 0, 1)));
+						background: -moz-linear-gradient(top,  rgb(111, 111, 111), rgb(0, 0, 0));
+						background: -ms-linear-gradient(top, rgb(111, 111, 111), rgb(0, 0, 0));
+						height: 50px;
+						color: white;
+						font-style: oblique;
+						font-weight: bold;
+					}
+						.list2 a
+						{
+							height:50px;
+						}
+						.list2 a:hover
+						{
+							background: -webkit-gradient(linear, left top, left bottom, from(rgba(111, 111, 111, 1)), to(rgba(0, 0, 0, 1)));
+							background: -moz-linear-gradient(top, rgb(111, 111, 111), rgb(0, 0, 0));
+							background: -ms-linear-gradient(top, rgb(111, 111, 111), rgb(0, 0, 0));
+						}
+
+/*head image*/
+#headder{
+height: 650px;
+}
+	#img1pos
+	{
+		width:100%;
+		height:650px;
+		position:absolute;
+		display: block;
+		overflow:hidden;
+		z-index: 9;
+		box-shadow: 0px 5px 5px #888888;
+	}
+		#textcont
+		{
+			position:relative;
+			top: 50px;
+		
+			height: 180px;
+			width: 100%;
+			text-align: center;
+			color: white;
+			background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(148, 148, 148, 0)));
+			background: -moz-linear-gradient(top, rgba(0, 0, 0, 1), rgba(148, 148, 148, 0));
+			background: -ms-linear-gradient(top, rgba(0, 0, 0, 1), rgba(148, 148, 148, 0));
+		
+			z-index: 10;
+}
+			.headtxt
+			{
+				font-family:sans-serif;
+				margin: 0 auto;
+				text-align:center;
+				font-size:24px;
+				font-weight:300;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+				.headtxtdes
+				{
+					color:white;
+				}
+					
+.maincontainer{
+background:rgb(234, 234, 234);
+}
+	.txtmain{
+		padding:30px;
+		text-align:center;
+	}
+		.txtmain p{
+			font-size:24px;
+		}
+.fb-share-button{
+z-index:9;
+}
+.txtpara{
+	text-align: left;
+	font-size:24px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 0px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+}
+.txtcenter{
+font-size:24px;
+margin-top: 5px;
+padding-left: 60px;
+padding-right: 60px;
+}
+.imgcon{
+    margin-top: 20px;
+	height: 360px;
+    padding-right: 5%;
+    padding-left: 10%;
+    width: 100%;
+}
+#bktotop{
+color:blue;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    margin-top:100px;
+
+}
+/*footer*/
+#footer{
+	font-size: 40px;
+	color: #808080;
+	text-align:center;
+}
+	#footerContact{
+		font-size: 15px;
+		color: #808080;
+		text-align:center;
+	}
+		footer{
+		/* position: absolute; */
+			display:block; 
+			
+		height: 260px;
+			background: -webkit-gradient(linear, left top, left bottom, from(rgba(234, 234, 234,1)), to(rgba(148, 148, 148, 1)));
+			background: -moz-linear-gradient(top, rgb(234, 234, 234), rgb(148, 148, 148));
+			background: -ms-linear-gradient(top, rgb(234, 234, 234), rgb(148, 148, 148));
+			bottom:0px;
+			width:100%;
+			
+		padding: 50px;
+			margin-left:0px;
+		}
+
+/* media queries have to be add for different widths */
+ @media only screen and (max-width : 1200px) {
+#headder{
+	height:600px;
+}
+	#img1pos
+	{
+		width:100%;
+		height: 600px;
+		position:absolute;
+		display: block;
+		overflow:hidden;
+	}
+ }
+
+@media screen and (max-width: 960px) {
+#headder{
+height:550px;
+}
+.headtxt{
+	font-family:sans-serif;
+	margin: 0 auto;
+	text-align:center;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight:300;
+	
+	}
+.headtxtdes
+{
+color:white;
+font-size:18px;
+}
+.maintxtdes
+{
+color:black;
+font-size:18px;
+}
+		
+		#img1pos
+		{
+			width:100%;
+			height:550px;
+			position:absolute;
+			overflow:hidden;
+		}
+}
+@media screen and (max-width: 767px){
+.list2
+{
+background: rgba(103, 103, 103, 1);
+height: 40px;
+}	
+	.list2 a
+	{
+		height: 40px;
+	}
+		.navbar-collapse.in {
+			width: 50%;
+			float: right;
+			position: relative;
+			right: -90px;
+			z-index: 9999;
+		}
+		#menutab
+		{
+			display:block;
+		}
+#headder{
+height: 400px;
+}
+.headtxt{
+	font-family:sans-serif;
+	margin: 0 auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align:center;
+	font-weight:300;
+	
+	}
+	.headtxtdes
+{
+color:white;
+font-size:18px;
+}
+.maintxtdes
+{
+color:black;
+font-size:18px;
+}
+
+		
+		#img1pos
+		{
+			width:100%;
+			height: 400px;
+			position:absolute;
+			overflow:hidden;
+		}
+}
+@media screen and (max-width: 432px) {
+   
+#headder{
+height:300px;
+}
+.headtxt{
+	font-family:sans-serif;
+	margin: 0 auto;
+	text-align:center;
+	font-size: 18px;
+	font-weight:300;
+
+	}
+	.headtxtdes
+{
+color:white;
+font-size: 16px;
+}
+.maintxtdes
+{
+color:black;
+font-size:18px;
+}
+
+		#img1pos
+	{
+	width:100%;
+	height:300px;
+	position:absolute;
+	overflow:hidden;
+	}
+#main{
+height:500px;
+}
+}
+@media only screen and (max-width : 320px) {
+
+ #main{
+ height:600px;
+ }  
+ #headder{
+height:250px;
+}
+
+.headtxtdes
+{
+color:white;
+font-size: 12px;
+}
+
+#img1pos
+	{
+	width:100%;
+	height:250px;
+	position:absolute;
+	overflow:hidden;
+	}
+
+}
+
+/* style for contact just testing with this style for now then link the contact page to its stlyesheet */
+body{
+	background-color:#F5F5F5;
+} 
