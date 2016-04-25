@@ -1,0 +1,1 @@
+Cloud9 link to website demo = https://ide.c9.io/halamidi/stargaming#openfile-README.md
