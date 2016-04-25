@@ -1,0 +1,2 @@
+if you would like to see this website funcioning then vist the url below. This is in a test enviournment there for you must run the project to view the site
+Cloud9 link to website demo = https://ide.c9.io/halamidi/stargaming#openfile-README.md
