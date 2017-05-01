@@ -1,6 +1,6 @@
 <?php
-	include("dbconnect.php");
-	
+	include("../PHPScripts/dbconnect.php");
+	//TODO Clean up code
 	$namesound=metaphone($_POST['name']);
 	$keywordsound=metaphone($_POST['keywords']);
 	$username = sha1($_POST['username']);

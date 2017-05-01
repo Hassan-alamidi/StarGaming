@@ -12,9 +12,6 @@
 <div class="container-fluid">  
   <div class="row"> <!-- add row to remove container-fluid padding -->
 	<div class="heightNav">
-		<!--<div class="navbar-brand" id="logopos">
-           <img src="images/GWSecurityLogo.jpg" alt="" id="logo">
-        </div>-->
 
 		<div class="navbar-static-top heightNav" id="banner">
 	 

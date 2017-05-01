@@ -24,9 +24,6 @@ look for errors
 <div class="container-fluid">  
   <div class="row"> <!-- add row to remove container-fluid padding -->
 	<div class="heightNav">
-		<!--<div class="navbar-brand" id="logopos">
-           <img src="images/GWSecurityLogo.jpg" alt="" id="logo">
-        </div>-->
 
 		<div class="navbar-static-top heightNav" id="banner">
 	 
@@ -45,7 +42,7 @@ look for errors
 						<li class="list2"><a href="ContactUs.php">Contact</a></li>
 					</ul>
 				</div>
-				<form class="search-container" id="searchbar"  method="POST" onclick="show()" action="search/ssearch.php">
+				<form class="search-container" id="searchbar"  method="POST" onclick="show()" action="search/Search.php">
 					<input id="search-box" type="text" tabindex="0" class="search-box" name="search-box" />
 					<label for="search-box"><span class="search-icon">&#128269;</span></label>
 					<input type="submit" class="hide" tabindex="1" id="search-submit" />
