@@ -1,81 +1,157 @@
 <?php
 	include("../PHPScripts/dbconnect.php");
-	//TODO Clean up code
-	$namesound=metaphone($_POST['name']);
-	$keywordsound=metaphone($_POST['keywords']);
-	$username = sha1($_POST['username']);
-	$password = sha1($_POST['password']);
-	if(isset($_POST['g-recaptcha-response'])){
-          $captcha=$_POST['g-recaptcha-response'];
-	}else{
-		header("Location:../index.html");
-		
-	}
-	if($captcha){
-		$response=file_get_contents($verify.$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
-		if($response.success==false){
-			header("Location:../index.html");
-		}else{
-			if(!empty($_POST['title'])){
-				header("Location:../index.html");
+
+	class AddRecord extends DBConnect{
+		//declare variables
+		private $recaptcha;
+		private $adminPass;
+		private $adminUsername;
+		private $articalHeading;
+		private $artcialContent;
+		private $articalKeywords;
+		private $articalUrl;
+		private $articalImg;
+		private $gameReleaseDate;
+		private $articalPublishDate;
+		private $nameSound;
+		private $keywordSound;
+		private $isRecaptchaImplemented;
+		private $PDOConnect;
+		private $sqlInsert, $sqlLogin, $sqlMaxID, $sqlMeta;
+
+		//create constructer to setup the class
+		public function __construct($recaptca,$password,$username,$objName,$objDescription, $objKeyWords, $objUrl, $objImgUrl,$objReleaseDate, $objPublishDate){
+			//clean variables of any undesired chars
+			$this->sanitizeVariables($password,$username,$objName,$objDescription, $objKeyWords, $objUrl, $objImgUrl,$objReleaseDate, $objPublishDate);
+			$this->setupSqlStatements();
+			//recaptcha is not functional on local servers so must enable/disable manually
+			$this->isRecaptchaImplemented = false;
+
+			//check if recaptcha is implemented if so check if it is null
+			//if this fails then just set recaptcha as null and deal with it later
+			if($this->isRecaptchaImplemented == true && $this->checkVar($this->recaptcha) === true){
+				$this->recaptcha = $recaptcha;
 			}else{
-				$uploadpassword = $connect->prepare("SELECT test1a, test2 FROM testDB WHERE test1a= ? AND test2= ? ");
-				if ( false===$uploadpassword ) {
-					die('failed error 1 ' . htmlspecialchars($sqlvalue->error));
-				}
-				$uploadpassword->bind_param("ss", $username, $password);
-				if ( false===$uploadpassword ) {
-					die('failed error 2 ' . htmlspecialchars($sqlvalue->error));
-				}
-				$uploadpassword->execute();
-				if ( false===$uploadpassword ) {
-					die('failed error 3 ' . htmlspecialchars($sqlvalue->error));
-				}
-				$uploadpassword->store_result();
-				if ( false===$uploadpassword ) {
-					die('failed error 4 ' . htmlspecialchars($sqlvalue->error));
-				}
-				$uploadpassword->bind_result($DBusername, $userpassword);
-				$uploadpassword->fetch();
-				if($username===$DBusername && $password===$userpassword){
-					$sql= $connect->prepare("INSERT INTO SearchPG (PGName, PGDescription, PGKeywords, PGUrl, PGImgUrl, PGReleaseDate, PGPublishDate) VALUES (?, ?, ?, ?, ?, ?, ?)"); 
-					//read pages in browser before continuing
-					$sqlID = $connect->prepare("SELECT MAX(PGID) FROM SearchPG");
-					
-					$sqlmeta = $connect->prepare("INSERT INTO metaphonetext (NameSound, KeywordSound, PGID) VALUES (?, ?, ?)");
-					if ( false===$sql && false===$sqlID && false===$sqlmeta) {
-					die('failed error 5 ' .htmlspecialchars($sql->error).htmlspecialchars($sqlID->error).htmlspecialchars($sqlmeta->error));
-					}else{
-						
-						$sql->bind_param("sssssss", $_POST['name'], $_POST['description'], $_POST['keywords'], $_POST['url'], $_POST['imgurl'], $_POST['releasedate'], $_POST['publishdate']);
-						$sql->execute();
-						$sqlID->execute();
-						$sqlID->bind_result($maxID);
-						$sqlID->fetch();
-						$sqlmeta->bind_param("sss", $namesound, $keywordsound, $maxID);
-						if ( false===$sql && false===$sqlID && false===$sqlmeta) {
-							die('failed error 6 ' .htmlspecialchars($sql->error).htmlspecialchars($sqlID->error).htmlspecialchars($sqlmeta->error));	
-						}else{
-							$sqlID->close();
-							$sqlmeta->execute();
-							if ( false===$sql && false===$sqlmeta) {
-								die('failed error 7 ' .htmlspecialchars($sql->error).htmlspecialchars($sqlmeta->error));	
-							}else{
-								$sql->close();
-								$sqlmeta->close();
-								echo "worked";
-							}
-						}
-					}
-					
-				}else{
-					echo "failed to check password";
-				//header("Location:../index.html");
-				
+				$this->recaptcha = null;
+			}
+
+			
+		}
+
+		public function beginTransaction(){
+			
+			if($this->checkVar($this->recaptcha) === false && $this->isRecaptchaImplemented === true ){
+				header("Location:../index.html");
+			}else if($this->checkVar($this->recaptcha) === true && $this->isRecaptchaImplemented === true ){
+				$response=file_get_contents($verify.$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
+				if($response.success == false){
+					header("Location:../index.html");
 				}
 			}
+
+			$this->connectionSetup();
+			$this->PDOConnect = $this->getConnection();
+
+			if($this->checkAdminCredentials()){
+				$this->submitData();
+			}
+
+
 		}
-	}else{
-		header("Location:../index.html");
+
+		
+
+		private function submitData(){
+
+			$query = $this->PDOConnect->prepare($this->sqlInsert);
+			$query->execute(array('PGName'=>$this->articalHeading, 'PGContent'=>$this->artcialContent, 'PGKeywords'=>$this->articalKeywords, 'PGUrl'=>$this->articalUrl,
+									'PGImgUrl'=>$this->articalImg, 'gameReleaseDate'=>$this->gameReleaseDate, 'PGPublishDate'=>$this->articalPublishDate));
+			if($query === false){
+				die('failed error 6 ' . htmlspecialchars($query->error));	
+			}
+			//Get maxID from searchPG which should be the new entry
+			$getMaxID = $this->PDOConnect->prepare($this->sqlMaxID);
+			$getMaxID->execute();
+			if($getMaxID === false){
+				die('failed error 6 ' . htmlspecialchars($getMaxID->error));	
+			}
+			$maxID = $getMaxID->fetchColumn();
+			
+			$queryMeta = $this->PDOConnect->prepare($this->sqlMeta);
+			$queryMeta->execute(array('nameSound'=>$this->nameSound, 'keySound'=>$this->keywordSound, 'FKey'=>$maxID));
+			if($queryMeta === false){
+				die('failed error 6 ' . htmlspecialchars($queryMeta->error));	
+			}else{
+				echo "worked";
+			}
+		}
+
+		private function checkAdminCredentials(){
+			
+			$query = $this->PDOConnect->prepare($this->sqlLogin);
+			$query->execute(array('adminName'=>$this->adminUsername, 'adminPassword'=>$this->adminPass));
+
+			if($query === false){
+				die('failed error 6 ' . htmlspecialchars($query->error));	
+			}
+
+			$searchResults = $query->fetch(PDO::FETCH_ASSOC);
+			if($this->adminUsername === $searchResults['test1a'] && $this->adminPass === $searchResults['test2']){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+		//these have benn seperated to make code a little cleaner
+		private function setupSqlStatements(){
+			//this sql statment inserts a new artical/record into the database
+			$this->sqlInsert = "INSERT INTO SearchPG (PGName, PGDescription, PGKeywords, PGUrl, PGImgUrl, PGReleaseDate, PGPublishDate) VALUES (:PGName, :PGContent, :PGKeywords, :PGUrl, :PGImgUrl, :gameReleaseDate, :PGPublishDate)";
+			//this sql statment checks if the admins credentials exists
+			$this->sqlLogin = "SELECT test1a, test2 FROM testDB WHERE test1a= :adminName AND test2= :adminPassword";
+			//this sql statement checks for the record with the largest id
+			$this->sqlMaxID = "SELECT MAX(PGID) FROM SearchPG";
+			//this sql stament inserts a record into the table metaphonetext and uses the max id as a forign key
+			$this->sqlMeta = "INSERT INTO metaphonetext (NameSound, KeywordSound, PGID) VALUES (:nameSound, :keySound, :FKey)";
+		}
+
+		private function sanitizeVariables($password,$username,$objName,$objDescription, $objKeyWords, $objUrl, $objImgUrl,$objReleaseDate, $objPublishDate){
+
+			//clean the admin password and username and convert to sha1. NOTE: must implement better hashing
+			$this->adminPass = sha1($this->cleanVar($password));
+			$this->adminUsername = sha1($this->cleanVar($username));
+			//cleanvariables to enusure no user is attempting to submit code or trick the server in anyway. 
+			//NOTE PDO already deals with this but this is just added mesures of precautions
+			$this->articalHeading = $this->cleanVar($objName);
+			$this->artcialContent = $this->cleanVar($objDescription);
+			$this->articalKeywords = stripcslashes($objKeyWords);
+			$this->articalKeywords= htmlspecialchars($this->articalKeywords);
+			$this->articalUrl = htmlspecialchars($objUrl);
+			$this->articalImg = htmlspecialchars($objImgUrl);
+			$this->gameReleaseDate = htmlspecialchars($objReleaseDate);
+			$this->articalPublishDate= htmlspecialchars($objPublishDate);
+			$this->nameSound=metaphone($this->articalHeading);
+			$this->keywordSound=metaphone($this->articalKeywords);
+
+
+		}
+
+		private function checkVar($var){
+			if(isset($var) && !empty($var)){
+				return true;
+			}
+			return false;
+		}
+
+		private function cleanVar($var){
+			$var = trim($var);
+			$var = stripcslashes($var);
+			$var = htmlspecialchars($var);
+			return $var;
+		}
 	}
+
+	$record = new AddRecord($_POST['g-recaptcha-response'], $_POST['password'], $_POST['username'],$_POST['name'], $_POST['description'], $_POST['keywords'], $_POST['url'], $_POST['imgurl'], $_POST['releasedate'], $_POST['publishdate']);
+	$record->beginTransaction();
+
 ?>

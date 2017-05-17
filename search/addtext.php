@@ -6,6 +6,7 @@
 </head>
 
 <body>
+<!--TODO Add upload image feature-->
 <form method="post" action="entertext.php">
 	<input name="name" placeholder="name" />
 	<input name="title" placeholder="title" />

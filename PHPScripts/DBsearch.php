@@ -1,6 +1,7 @@
 <?php
 include("dbconnect.php");
-class DBsearch{
+
+class DBsearch extends DBConnect{
 	private $data;
 	private $dataList;
 	private $sound;
@@ -9,6 +10,7 @@ class DBsearch{
 	private $resultCount;
 	private $resultsArray;
 	private $PDOConnect;
+	private $dbConnect;
 	//TODO add error checks
 
 	//this is the class constructer used to setup the entire class
@@ -21,26 +23,24 @@ class DBsearch{
 		$this->allResults = array();
 		$this->resultsArray = array();
 		$this->resultCount = 0;
+		$this->connectionSetup();
+		$this->PDOConnect = $this->getConnection();
 
 	}
 
 	//begin search is used to search for results in the intended manner
 	public function Begin_search(){
 		if(strlen($this->data) > 2){
-			try{
-				$this->PDOConnect = new PDO("mysql:host=127.0.0.1; dbname=stargaming","root","");
-				$this->PDOConnect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-			}catch(PDOException $e){
-				echo $e->getMessage();
-				die();
-			}
+//			try{
+//				$this->PDOConnect = new PDO("mysql:host=127.0.0.1; dbname=stargaming","root","");
+//				$this->PDOConnect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//
+//			}catch(PDOException $e){
+//				echo $e->getMessage();
+//				die();
+//			}
 			//check for connection error
-			global $connect;
-			if($connect->connect_errno){
-				printf("connection failed, please try again and if this error occurs again please submit this bug through the contact us page", $connect->connect_error);
-				exit();
-			}
+			
 			$this->FullSearch($this->data);
 			$this->PostSoundsLike($this->searchSound);
 
@@ -62,12 +62,12 @@ class DBsearch{
 	//fullsearch searches for records in the database for anything similar to keywords or the name
 	//this function maybe redundant as postSoundsLike would more than likely get all of the same results, so I will have to test this out.
 	function FullSearch($val){
-		global $connect;
+		
 		$sql = "SELECT PGID, PGName, PGUrl, PGImgUrl FROM SearchPG WHERE PGName LIKE :post OR PGKeywords LIKE :post";
 		$query =$this->PDOConnect->prepare($sql);
 		$query->execute(array('post'=>$val));
 		$searchResult = $query->fetchAll(PDO::FETCH_ASSOC);
-		$this->CompileResults2($searchResult);
+		$this->CompileResults($searchResult);
 	}
 
 	//sounds like searches the database for records that sound similar to the value passed in
@@ -76,12 +76,12 @@ class DBsearch{
 		$query =$this->PDOConnect->prepare($sql);
 		$query->execute(array('post'=>$val));
 		$searchResult = $query->fetchAll(PDO::FETCH_ASSOC);
-		$this->CompileResults2($searchResult);
+		$this->CompileResults($searchResult);
 	}
 
 
 	//the below function compiles all the results from each individual search and stores them in an array
-	function CompileResults2($searchResult){
+	function CompileResults($searchResult){
 		
 		foreach ($searchResult as $key => $value) {
 			# code...

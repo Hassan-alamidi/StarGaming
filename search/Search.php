@@ -69,10 +69,15 @@ look for errors
 				<?php
 					require('../PHPScripts/DBsearch.php');
 					require('../PHPScripts/ConstructPage.php');
-					$search = new DBsearch($_POST['search-box']);
-					$results = $search->Begin_search();
-					$pgConstruct = new ConstructPage();
-					$pgConstruct->ConstructSearchResults($results);
+					if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+						$search = new DBsearch(htmlspecialchars($_POST['search-box']));
+						$results = $search->Begin_search();
+						$pgConstruct = new ConstructPage();
+						$pgConstruct->ConstructSearchResults($results);
+					}else{
+						echo "Something has gone wrong please try again";
+					}
 				?>
 				</div>
 				<div class="col-md-3 hide">
